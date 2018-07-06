@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{61E771B2-EC8B-4416-9889-A50F4C1C8A50}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Starter files Status">
+    <Files>
+      <File FileName="TourManagement.API/Controllers/ToursController.cs" Line="1" Column="1" />
+      <File FileName="TourManagement.API/appsettings.json" Line="18" Column="123" />
+      <File FileName="Starter files Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.TourManagement.API PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

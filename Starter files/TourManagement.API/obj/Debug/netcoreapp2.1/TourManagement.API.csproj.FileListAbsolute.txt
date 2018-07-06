@@ -1,0 +1,14 @@
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/bin/Debug/netcoreapp2.1/TourManagement.API.deps.json
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/bin/Debug/netcoreapp2.1/TourManagement.API.runtimeconfig.json
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/bin/Debug/netcoreapp2.1/TourManagement.API.runtimeconfig.dev.json
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/bin/Debug/netcoreapp2.1/TourManagement.API.dll
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/bin/Debug/netcoreapp2.1/TourManagement.API.pdb
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.csprojResolveAssemblyReference.cache
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.csproj.CoreCompileInputs.cache
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.RazorAssemblyInfo.cache
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.RazorAssemblyInfo.cs
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.AssemblyInfoInputs.cache
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.AssemblyInfo.cs
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.RazorTargetAssemblyInfo.cache
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.dll
+/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.pdb
