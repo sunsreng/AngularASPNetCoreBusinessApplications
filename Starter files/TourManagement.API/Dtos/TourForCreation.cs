@@ -1,10 +1,8 @@
 ﻿using System;
 namespace TourManagement.API.Dtos
 {
-    public class TourForCreation
+    public class TourForCreation : TourAbstractBase
     {
-        public TourForCreation()
-        {
-        }
+        public Guid BandId { get; set; }
     }
 }

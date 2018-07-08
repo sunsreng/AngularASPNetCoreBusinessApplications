@@ -27,6 +27,20 @@ namespace TourManagement.API
             services.AddMvc(setupAction =>
             {
                 setupAction.ReturnHttpNotAcceptable = true;
+
+                var jsonOutputFormater = setupAction.OutputFormatters.OfType<JsonOutputFormatter>().FirstOrDefault();
+                if (jsonOutputFormater != null)
+                {
+                    jsonOutputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tour+json");
+                    jsonOutputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithestimatedprofits+json");
+                }
+
+                var jsonInputFormater = setupAction.InputFormatters.OfType<JsonInputFormatter>().FirstOrDefault();
+                if (jsonInputFormater != null)
+                {
+                    jsonInputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourforcreation+json");
+                    jsonInputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithmanagerforcreation+json");
+                }
             })
             .AddJsonOptions(options =>
             {
@@ -81,11 +95,14 @@ namespace TourManagement.API
 
             AutoMapper.Mapper.Initialize(config =>
             {
-                config.CreateMap<Entities.Tour, Dtos.Tour>()
-                    .ForMember(d => d.Band, o => o.MapFrom(s => s.Band.Name));
+                config.CreateMap<Entities.Tour, Dtos.Tour>().ForMember(d => d.Band, o => o.MapFrom(s => s.Band.Name));
+                config.CreateMap<Entities.Tour, Dtos.TourWithEstimatedProfits>().ForMember(d => d.Band, o => o.MapFrom(s => s.Band.Name));
                 config.CreateMap<Entities.Band, Dtos.Band>();
                 config.CreateMap<Entities.Manager, Dtos.Manager>();
-                config.CreateMap<Entities.Show, Dtos.Show>(); 
+                config.CreateMap<Entities.Show, Dtos.Show>();
+
+                config.CreateMap<Dtos.TourForCreation, Entities.Tour>();
+                config.CreateMap<Dtos.TourWithManagerForCreation, Entities.Tour>(); 
             });
 
             // Enable CORS

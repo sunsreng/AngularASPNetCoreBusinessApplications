@@ -1,10 +1,8 @@
 ﻿using System;
 namespace TourManagement.API.Dtos
 {
-    public class TourWithManagerForCreation
+    public class TourWithManagerForCreation : TourForCreation
     {
-        public TourWithManagerForCreation()
-        {
-        }
+        public string ManagerId { get; set; }
     }
 }

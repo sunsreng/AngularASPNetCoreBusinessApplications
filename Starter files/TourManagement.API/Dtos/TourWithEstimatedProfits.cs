@@ -1,10 +1,8 @@
 ﻿using System;
 namespace TourManagement.API.Dtos
 {
-    public class TourWithEstimatedProfits
+    public class TourWithEstimatedProfits : Tour
     {
-        public TourWithEstimatedProfits()
-        {
-        }
+        public decimal EstimatedProfits { get; set; }
     }
 }

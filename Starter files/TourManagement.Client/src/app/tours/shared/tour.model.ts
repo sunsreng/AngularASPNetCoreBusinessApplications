@@ -1,8 +1,8 @@
 export class Tour {
-    tourId: string;    
+    tourId: string;
     band: string;
     title: string;
-    description: string;   
+    description: string;
     startDate: Date;
     endDate: Date;
 }

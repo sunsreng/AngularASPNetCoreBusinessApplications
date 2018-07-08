@@ -1,10 +1,12 @@
 ﻿using System;
 namespace TourManagement.API.Dtos
 {
-    public class TourAbstractBase
+    // Use abstract to not allow to use this class direct
+    public abstract class TourAbstractBase
     {
-        public TourAbstractBase()
-        {
-        }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTimeOffset StartDate { get; set; }
+        public DateTimeOffset EndDate { get; set; }
     }
 }
