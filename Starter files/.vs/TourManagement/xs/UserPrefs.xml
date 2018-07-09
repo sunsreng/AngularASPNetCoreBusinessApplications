@@ -2,7 +2,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="TourManagement.API/Controllers/ToursController.cs">
     <Files>
       <File FileName="TourManagement.API/Startup.cs" Line="42" Column="64" />
-      <File FileName="TourManagement.API/Controllers/ToursController.cs" Line="58" Column="66" />
+      <File FileName="TourManagement.API/Controllers/ToursController.cs" Line="65" Column="43" />
+      <File FileName="TourManagement.API/Dtos/TourWithEstimatedProfits.cs" Line="4" Column="18" />
+      <File FileName="TourManagement.API/Dtos/Tour.cs" Line="5" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
