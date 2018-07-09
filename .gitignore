@@ -4,3 +4,5 @@
 
 /.vs
 /Finished sample/Marvin.IDP/obj
+/Starter files/.vs/TourManagement/v15/Server/sqlite3
+/Starter files/TourManagement.API/obj/Debug/netcoreapp2.1
