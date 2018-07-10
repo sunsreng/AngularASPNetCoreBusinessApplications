@@ -4,12 +4,4 @@
     <WebStackScaffolding_DependencyDialogWidth>600</WebStackScaffolding_DependencyDialogWidth>
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
-    <StartAction>Project</StartAction>
-    <EnvironmentVariables>
-      <Variable name="ASPNETCORE_ENVIRONMENT" value="Development" xmlns="" />
-      <Variable name="ASPNETCORE_ENVIRONMENT" value="Development" xmlns="" />
-    </EnvironmentVariables>
-    <LaunchUrl>api/values</LaunchUrl>
-  </PropertyGroup>
 </Project>
