@@ -28,22 +28,24 @@ namespace TourManagement.API
             {
                 setupAction.ReturnHttpNotAcceptable = true;
 
-                var jsonOutputFormater = setupAction.OutputFormatters.OfType<JsonOutputFormatter>().FirstOrDefault();
-                if (jsonOutputFormater != null)
+                var jsonOutputFormatter = setupAction.OutputFormatters.OfType<JsonOutputFormatter>().FirstOrDefault();
+                if (jsonOutputFormatter != null)
                 {
-                    jsonOutputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tour+json");
-                    jsonOutputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithestimatedprofits+json");
-                    jsonOutputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithshows+json");
-                    jsonOutputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithestimatedprofitsandshows+json");
+                    jsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tour+json");
+                    jsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tourwithestimatedprofits+json");
+                    jsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tourwithshows+json");
+                    jsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tourwithestimatedprofitsandshows+json");
+                    jsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.showcollection+json");
                 }
 
-                var jsonInputFormater = setupAction.InputFormatters.OfType<JsonInputFormatter>().FirstOrDefault();
-                if (jsonInputFormater != null)
+                var jsonInputFormatter = setupAction.InputFormatters.OfType<JsonInputFormatter>().FirstOrDefault();
+                if (jsonInputFormatter != null)
                 {
-                    jsonInputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourforcreation+json");
-                    jsonInputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithmanagerforcreation+json");
-                    jsonInputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithshowsforcreation+json");
-                    jsonInputFormater.SupportedMediaTypes.Add("application/vnd.marvin.tourwithmanagerandshowsforcreation+json");
+                    jsonInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tourforcreation+json");
+                    jsonInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tourwithmanagerforcreation+json");
+                    jsonInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tourwithshowsforcreation+json");
+                    jsonInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.tourwithmanagerandshowsforcreation+json");
+                    jsonInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.showcollectionforcreation+json");
                 }
             })
             .AddJsonOptions(options =>
