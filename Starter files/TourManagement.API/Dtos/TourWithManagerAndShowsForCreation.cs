@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TourManagement.API.Dtos
 {
-    public class TourWithManagerAndShowsForCreation
+    public class TourWithManagerAndShowsForCreation : TourWithManagerForCreation
     {
-        public TourWithManagerAndShowsForCreation()
-        {
-        }
+        public ICollection<ShowForCreation> Shows { get; set; } = new List<ShowForCreation>();
     }
 }

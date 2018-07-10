@@ -1,10 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
+
 namespace TourManagement.API.Dtos
 {
-    public class TourWithEstimatedProfitsAndShows
+    public class TourWithEstimatedProfitsAndShows : TourWithEstimatedProfits
     {
-        public TourWithEstimatedProfitsAndShows()
-        {
-        }
+        public ICollection<Show> Shows { get; set; } = new List<Show>();
     }
 }
