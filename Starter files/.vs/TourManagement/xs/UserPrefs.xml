@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{61E771B2-EC8B-4416-9889-A50F4C1C8A50}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="TourManagement.API/Controllers/ToursController.cs">
     <Files>
-      <File FileName="TourManagement.API/Startup.cs" Line="42" Column="64" />
-      <File FileName="TourManagement.API/Controllers/ToursController.cs" Line="65" Column="43" />
-      <File FileName="TourManagement.API/Dtos/TourWithEstimatedProfits.cs" Line="4" Column="18" />
-      <File FileName="TourManagement.API/Dtos/Tour.cs" Line="5" Column="41" />
+      <File FileName="TourManagement.API/Controllers/ToursController.cs" Line="119" Column="65" />
+      <File FileName="TourManagement.API/Startup.cs" Line="46" Column="126" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/sunsreng/Development/DOTNET-NG/AngularASPNetCoreBusinessApplications/Starter files/TourManagement.API/Controllers/ToursController.cs" relfile="TourManagement.API/Controllers/ToursController.cs" line="50" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
