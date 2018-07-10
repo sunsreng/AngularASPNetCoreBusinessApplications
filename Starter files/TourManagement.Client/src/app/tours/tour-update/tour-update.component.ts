@@ -1,13 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MasterDataService } from '../../shared/master-data.service';
-import { TourService } from '../shared/tour.service';
-import { Tour } from '../shared/tour.model';
-import { Band } from '../../shared/band.model';
-import { Subscription } from 'rxjs/Subscription';
+import { DatePipe } from '@angular/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatePipe } from '@angular/common'
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { compare } from 'fast-json-patch';
+import { Subscription } from 'rxjs/Subscription';
 
+import { MasterDataService } from '../../shared/master-data.service';
+import { TourForUpdate } from '../shared/tour-for-update.model';
+import { Tour } from '../shared/tour.model';
+import { TourService } from '../shared/tour.service';
 
 @Component({
   selector: 'app-tour-update',
@@ -20,6 +21,7 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
   private tour: Tour;
   private tourId: string;
   private sub: Subscription;
+  private originalTourForUpdate: TourForUpdate;
 
   constructor(private masterDataService: MasterDataService,
     private tourService: TourService,
@@ -35,7 +37,7 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
       startDate: [],
       endDate: []
     });
- 
+
     // get route data (tourId)
     this.sub = this.route.params.subscribe(
       params => {
@@ -44,8 +46,10 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
         // load tour
         this.tourService.getTour(this.tourId)
           .subscribe(tour => {
-            this.tour = tour;  
-            this.updateTourForm();     
+            this.tour = tour;
+            this.updateTourForm();
+
+            this.originalTourForUpdate = automapper.map('TourFormModel', 'TourForUpdate', this.tourForm.value);
           });
       }
     );
@@ -55,10 +59,9 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  private updateTourForm(): void
-  { 
-    let datePipe = new DatePipe(navigator.language);
-    let dateFormat = 'yyyy-MM-dd';
+  private updateTourForm(): void {
+    const datePipe = new DatePipe(navigator.language);
+    const dateFormat = 'yyyy-MM-dd';
 
     this.tourForm.patchValue({
       title: this.tour.title,
@@ -69,8 +72,13 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
   }
 
   saveTour(): void {
-    if (this.tourForm.dirty) {       
-      // TODO
-    } 
-}
+    if (this.tourForm.dirty) {
+      const changedTourForUpdate = automapper.map('TourFormModel', 'TourForUpdate', this.tourForm.value);
+
+      const patchDocument = compare(this.originalTourForUpdate, changedTourForUpdate);
+
+      this.tourService.partiallyUpdateTour(this.tourId, patchDocument)
+      .subscribe(() => this.router.navigateByUrl('/tours'));
+    }
+  }
 }
