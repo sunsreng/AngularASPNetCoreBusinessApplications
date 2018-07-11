@@ -1,15 +1,15 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http/src/response';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpErrorResponse } from '@angular/common/http/src/response';
+
 import { GlobalErrorHandler } from './global-error-handler';
 
 
 @Injectable()
 export class HandleHttpErrorInterceptor implements HttpInterceptor {
 
-    constructor(private globalErrorHandler: GlobalErrorHandler) {
-    }
+    constructor(private globalErrorHandler: GlobalErrorHandler) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request)
@@ -18,17 +18,20 @@ export class HandleHttpErrorInterceptor implements HttpInterceptor {
                     // client-side or network error
                     const errorToLog = `Http error (client/network). ${error.message}`;
                     this.globalErrorHandler.handleError(errorToLog);
-                }
-                else {
-                    // unsuccesful response code                   
+                } else {
+                    // unsuccesful response code
+                    // tslint:disable-next-line:max-line-length
                     const errorToLog = `Http error (unsuccessful reponse). Message: ${error.message}, status code: ${(error).status}, body: ${JSON.stringify(error.error)} `;
                     this.globalErrorHandler.handleError(errorToLog);
                 }
 
-                return Observable.of(new HttpResponse());
-                
+                if (error.status === 422) {
+                    return Observable.throw(error.error);
+                } else {
+                    return Observable.of(new HttpResponse());
+                }
             }
-            )
+            );
     }
 }
 

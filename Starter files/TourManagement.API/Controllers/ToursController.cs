@@ -110,8 +110,6 @@ namespace TourManagement.API.Controllers
         [RequestHeaderMatchesMediaType("Content-Type", new[] { "application/vnd.marvin.tourwithshowsforcreation+json" })]
         public async Task<IActionResult> AddTourWithShows([FromBody] TourWithShowsForCreation tour)
         {
-            if (tour == null) return BadRequest();
-
             return await AddSpecificTour(tour);
         }
 
@@ -120,8 +118,6 @@ namespace TourManagement.API.Controllers
         [RequestHeaderMatchesMediaType("Content-Type", new[] { "application/vnd.marvin.tourwithmanagerandshowsforcreation+json" })]
         public async Task<IActionResult> AddTourWithManagerAndShows([FromBody] TourWithManagerAndShowsForCreation tour)
         {
-            if (tour == null) return BadRequest();
-
             return await AddSpecificTour(tour);
         }
 
@@ -139,7 +135,9 @@ namespace TourManagement.API.Controllers
 
         private async Task<IActionResult> AddSpecificTour<T>(T tour) where T : class
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (tour == null) return BadRequest();
+
+            if (!ModelState.IsValid) return new UnprocessableEntityObjectResult(ModelState);
 
             var tourEntity = Mapper.Map<Entities.Tour>(tour);
 
@@ -177,19 +175,17 @@ namespace TourManagement.API.Controllers
 
             var tourToPatch = Mapper.Map<TourForUpdate>(tourFromRepo);
 
-            jsonPatchDocument.ApplyTo(tourToPatch);
+            jsonPatchDocument.ApplyTo(tourToPatch, ModelState);
 
-            //jsonPatchDocument.ApplyTo(tourToPatch, ModelState);
+            if (!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return new UnprocessableEntityObjectResult(ModelState);
-            //}
-
-            //if (!TryValidateModel(tourToPatch))
-            //{
-            //    return new UnprocessableEntityObjectResult(ModelState);
-            //}
+            if (!TryValidateModel(tourToPatch))
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
 
             Mapper.Map(tourToPatch, tourFromRepo);
 
