@@ -1,10 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { compare } from 'fast-json-patch';
 import { Subscription } from 'rxjs/Subscription';
 
+import { CustomValidators } from '../../shared/custom-validators';
 import { MasterDataService } from '../../shared/master-data.service';
 import { TourForUpdate } from '../shared/tour-for-update.model';
 import { Tour } from '../shared/tour.model';
@@ -32,11 +33,11 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // define the tourForm (with empty default values)
     this.tourForm = this.formBuilder.group({
-      title: [''],
+      title: ['', [Validators.required, Validators.maxLength(200)]],
       description: [''],
       startDate: [],
       endDate: []
-    });
+    }, { validator: CustomValidators.StartDateBeforeEndDateValidator });
 
     // get route data (tourId)
     this.sub = this.route.params.subscribe(
@@ -72,7 +73,7 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
   }
 
   saveTour(): void {
-    if (this.tourForm.dirty) {
+    if (this.tourForm.dirty && this.tourForm.valid) {
       const changedTourForUpdate = automapper.map('TourFormModel', 'TourForUpdate', this.tourForm.value);
 
       const patchDocument = compare(this.originalTourForUpdate, changedTourForUpdate);
