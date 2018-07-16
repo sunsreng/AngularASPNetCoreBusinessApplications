@@ -7,7 +7,4 @@
 /Starter files/.vs/TourManagement/v15/Server/sqlite3
 /Starter files/TourManagement.API/obj/Debug/netcoreapp2.1
 Starter files/.vs/TourManagement/v15/.suo
-Starter files/TourManagement.API/bin/Debug/netcoreapp2.1/TourManagement.API.dll
-Starter files/TourManagement.API/bin/Debug/netcoreapp2.1/TourManagement.API.pdb
-Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.dll
-Starter files/TourManagement.API/obj/Debug/netcoreapp2.1/TourManagement.API.pdb
+/bin/Debug/netcoreapp2.1/TourManagement.API.dll
