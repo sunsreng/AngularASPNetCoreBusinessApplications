@@ -16,6 +16,11 @@ namespace TourManagement.API.Services
 
         private readonly IUserInfoService _userInfoService;
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Tour>()
+        //        .Property(b => b.EstimatedProfits).HasColumnType("decimal(18, 2)");
+        //}
         //public TourManagementContext(DbContextOptions<TourManagementContext> options )
         //  : base(options)
         //{ 

@@ -18,7 +18,7 @@ namespace TourManagement.API.Entities
         [MaxLength(2000)]
         public string Description { get; set; }
 
-        [DataType("decimal(18,5)")]
+        [Column(TypeName = "decimal(18,5)")]
         public decimal EstimatedProfits { get; set; }
 
         [Required]
