@@ -26,6 +26,7 @@ TourManagement.Client/!.vscode/extensions.json
 
 # IDE - VS
 .vs/
+TourManagement.API/bin/
 
 # misc
 TourManagement.Client/.sass-cache

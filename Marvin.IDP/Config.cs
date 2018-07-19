@@ -72,7 +72,7 @@ namespace Marvin.IDP
                         "https://localhost:4200/signin-oidc",
                         "https://localhost:4200/redirect-silentrenew"
                     },
-                    AccessTokenLifetime = 180,
+                    AccessTokenLifetime = 3600,
                     PostLogoutRedirectUris = new[]{
                         "https://localhost:4200/" },
                     AllowedScopes = new []

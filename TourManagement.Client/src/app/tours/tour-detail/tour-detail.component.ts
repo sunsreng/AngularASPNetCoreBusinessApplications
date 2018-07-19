@@ -18,8 +18,7 @@ export class TourDetailComponent implements OnInit, OnDestroy {
   private tour: any;
   private tourId: string;
   private sub: Subscription;
-  private isAdmin: boolean = 
-  (this.openIdConnectService.user.profile.role === "Administrator");
+  private isAdmin: boolean = (this.openIdConnectService.user.profile.role === 'Administrator');
 
   constructor(private masterDataService: MasterDataService,
     private tourService: TourService,
@@ -34,19 +33,18 @@ export class TourDetailComponent implements OnInit, OnDestroy {
         this.tourId = params['tourId'];
 
         if (this.isAdmin === true) {
-          // get tour with estimated profits field 
+          // get tour with estimated profits field
           this.tourService.getTourWithEstimatedProfitsAndShows(this.tourId)
             .subscribe(tour => {
               this.tour = tour;
             });
-        }
-        else {
-          // get tour 
+        } else {
+          // get tour
           this.tourService.getTourWithShows(this.tourId)
             .subscribe(tour => {
               this.tour = tour;
             });
-        }    
+        }
       }
     );
   }

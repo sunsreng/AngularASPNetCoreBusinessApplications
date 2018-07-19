@@ -14,7 +14,7 @@ using TourManagement.API.Services;
 namespace TourManagement.API.Controllers
 {
     [Route("api/tours")]
-    //[Authorize]
+    [Authorize]
     public class ToursController : Controller
     {
         private readonly ITourManagementRepository _tourManagementRepository;
@@ -32,20 +32,19 @@ namespace TourManagement.API.Controllers
         {
             IEnumerable<Entities.Tour> toursFromRepo = new List<Entities.Tour>();
 
-            toursFromRepo = await _tourManagementRepository.GetTours();
-            //if (_userInfoService.Role == "Administrator")
-            //{
-            //    toursFromRepo = await _tourManagementRepository.GetTours();
-            //}
-            //else
-            //{
-            //    if (!Guid.TryParse(_userInfoService.UserId, out Guid userIdAsGuid))
-            //    {
-            //        return Forbid();
-            //    }
+            if (_userInfoService.Role == "Administrator")
+            {
+                toursFromRepo = await _tourManagementRepository.GetTours();
+            }
+            else
+            {
+                if (!Guid.TryParse(_userInfoService.UserId, out Guid userIdAsGuid))
+                {
+                    return Forbid();
+                }
 
-            //    toursFromRepo = await _tourManagementRepository.GetToursForManager(userIdAsGuid);
-            //}
+                toursFromRepo = await _tourManagementRepository.GetToursForManager(userIdAsGuid);
+            }
 
             var tours = Mapper.Map<IEnumerable<Tour>>(toursFromRepo);
             return Ok(tours);
@@ -80,14 +79,12 @@ namespace TourManagement.API.Controllers
         }
 
         [HttpGet("{tourId}", Name = "GetTour")]
-        [RequestHeaderMatchesMediaType("Accept",
-            new[] { "application/vnd.marvin.tour+json" })]
-        public async Task<IActionResult> GetTour(Guid tourId)
-        {
-            return await GetSpecificTour<Tour>(tourId);
-        }
+        [Authorize(Policy = "UserMustBeTourManager")]
+        [RequestHeaderMatchesMediaType("Accept", new[] { "application/vnd.marvin.tour+json" })]
+        public async Task<IActionResult> GetTour(Guid tourId) => await GetSpecificTour<Tour>(tourId);
 
         [HttpGet("{tourId}")]
+        [Authorize(Policy = "UserMustBeTourManager")]
         [RequestHeaderMatchesMediaType("Accept",
             new[] { "application/vnd.marvin.tourwithestimatedprofits+json" })]
         public async Task<IActionResult> GetTourWithEstimatedProfits(Guid tourId)
@@ -96,6 +93,7 @@ namespace TourManagement.API.Controllers
         }
 
         [HttpGet("{tourId}")]
+        [Authorize(Policy = "UserMustBeTourManager")]
         [RequestHeaderMatchesMediaType("Accept",
             new[] { "application/vnd.marvin.tourwithshows+json" })]
         public async Task<IActionResult> GetTourWithShows(Guid tourId)
@@ -104,12 +102,10 @@ namespace TourManagement.API.Controllers
         }
 
         [HttpGet("{tourId}")]
-        [RequestHeaderMatchesMediaType("Accept",
-            new[] { "application/vnd.marvin.tourwithestimatedprofitsandshows+json" })]
-        public async Task<IActionResult> GetTourWithEstimatedProfitsAndShows(Guid tourId)
-        {
-            return await GetSpecificTour<TourWithEstimatedProfitsAndShows>(tourId, true);
-        }
+        [Authorize(Policy = "UserMustBeTourManager")]
+        [Authorize(Policy = "UserMustBeAdministrator")]
+        [RequestHeaderMatchesMediaType("Accept", new[] { "application/vnd.marvin.tourwithestimatedprofitsandshows+json" })]
+        public async Task<IActionResult> GetTourWithEstimatedProfitsAndShows(Guid tourId) => await GetSpecificTour<TourWithEstimatedProfitsAndShows>(tourId, true);
 
 
 
