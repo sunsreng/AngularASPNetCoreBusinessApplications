@@ -9,17 +9,17 @@ import { TourService } from './shared/tour.service';
   styleUrls: ['./tours.component.css']
 })
 export class ToursComponent implements OnInit {
-  title: string = 'Tour overview'
+  title = 'Tour overview';
   tours: Tour[] = [];
 
-  constructor(private tourService: TourService) {    
-        }
+  constructor(private tourService: TourService) {
+  }
 
   ngOnInit() {
     this.tourService.getTours()
-    .subscribe(tours => {
+      .subscribe(tours => {
         this.tours = tours;
-    });    
+      });
   }
 
 }

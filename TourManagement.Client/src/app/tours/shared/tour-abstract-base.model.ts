@@ -1,6 +1,6 @@
-export abstract class TourAbstractBase { 
+export abstract class TourAbstractBase {
     title: string;
-    description: string; 
+    description: string;
     startDate: Date;
     endDate: Date;
-    }
+}

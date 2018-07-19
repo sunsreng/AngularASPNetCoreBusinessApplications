@@ -1,4 +1,4 @@
 export class Manager {
-    managerId : string;
-    name : string
+    managerId: string;
+    name: string;
 }

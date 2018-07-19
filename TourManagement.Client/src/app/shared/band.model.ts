@@ -1,4 +1,4 @@
 export class Band {
-    bandId: string;    
+    bandId: string;
     name: string;
 }

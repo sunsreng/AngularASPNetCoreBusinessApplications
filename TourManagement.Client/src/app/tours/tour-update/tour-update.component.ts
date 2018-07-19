@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MasterDataService } from '../../shared/master-data.service';
-import { TourService } from '../shared/tour.service';
-import { Tour } from '../shared/tour.model';
-import { Band } from '../../shared/band.model';
-import { Subscription } from 'rxjs/Subscription';
+import { DatePipe } from '@angular/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatePipe } from '@angular/common'
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { TourForUpdate } from '../shared/tour-for-update.model';
 import { compare } from 'fast-json-patch';
+import { Subscription } from 'rxjs/Subscription';
+
 import { CustomValidators } from '../../shared/custom-validators';
+import { MasterDataService } from '../../shared/master-data.service';
+import { TourForUpdate } from '../shared/tour-for-update.model';
+import { Tour } from '../shared/tour.model';
+import { TourService } from '../shared/tour.service';
 
 @Component({
   selector: 'app-tour-update',
@@ -65,8 +65,8 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
   }
 
   private updateTourForm(): void {
-    let datePipe = new DatePipe(navigator.language);
-    let dateFormat = 'yyyy-MM-dd';
+    const datePipe = new DatePipe(navigator.language);
+    const dateFormat = 'yyyy-MM-dd';
 
     this.tourForm.patchValue({
       title: this.tour.title,
@@ -84,12 +84,12 @@ export class TourUpdateComponent implements OnInit, OnDestroy {
       //   {op: "replace", path: "/title", value: "Updated title"}
       // ]
 
-      let changedTourForUpdate = automapper.map(
+      const changedTourForUpdate = automapper.map(
         'TourFormModel',
         'TourForUpdate',
         this.tourForm.value);
 
-      let patchDocument = compare(this.originalTourForUpdate, changedTourForUpdate);
+      const patchDocument = compare(this.originalTourForUpdate, changedTourForUpdate);
 
       this.tourService.partiallyUpdateTour(this.tourId, patchDocument)
         .subscribe(

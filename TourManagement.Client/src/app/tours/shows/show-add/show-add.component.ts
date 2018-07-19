@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
-import { ShowService } from '../shared/show.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
+
+import { ShowService } from '../shared/show.service';
 import { ShowSingleComponent } from '../show-single/show-single.component';
 
 @Component({
@@ -11,7 +12,7 @@ import { ShowSingleComponent } from '../show-single/show-single.component';
   styleUrls: ['./show-add.component.css']
 })
 
-export class ShowAddComponent implements OnInit {
+export class ShowAddComponent implements OnInit, OnDestroy {
   private sub: Subscription;
   private tourId: string;
   public showCollectionForm: FormGroup;
@@ -37,7 +38,7 @@ export class ShowAddComponent implements OnInit {
   }
 
   addShow(): void {
-    let showsFormArray = this.showCollectionForm.get('shows') as FormArray;
+    const showsFormArray = this.showCollectionForm.get('shows') as FormArray;
     showsFormArray.push(ShowSingleComponent.createShow());
   }
 
@@ -45,7 +46,7 @@ export class ShowAddComponent implements OnInit {
     if (this.showCollectionForm.dirty
       && this.showCollectionForm.value.shows.length) {
 
-      let showCollection = automapper.map(
+      const showCollection = automapper.map(
         'ShowCollectionFormModelShowsArray',
         'ShowCollectionForCreation',
         this.showCollectionForm.value.shows);

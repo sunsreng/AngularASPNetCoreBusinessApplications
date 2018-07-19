@@ -3,6 +3,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+// import { automapper, AutoMapperJs } from 'automapper-ts';
+import 'automapper-ts';
 
 import { AboutComponent } from './about';
 import { AppComponent } from './app.component';

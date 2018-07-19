@@ -1,20 +1,21 @@
-import { Injectable, ErrorHandler } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
-import { Tour } from './tour.model';
-import { BaseService } from '../../shared/base.service';
-import { TourWithEstimatedProfits } from './tour-with-estimated-profits.model';
-import { TourForCreation } from './tour-for-creation.model';
-import { TourWithManagerForCreation } from './tour-with-manager-for-creation.model';
-import { TourWithShows } from './tour-with-shows.model';
-import { TourWithEstimatedProfitsAndShows } from './tour-with-estimated-profits-and-shows.model';
-import { TourWithShowsForCreation } from './tour-with-shows-for-creation.model';
-import { TourWithManagerAndShowsForCreation } from './tour-with-manager-and-shows-for-creation.model';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Operation } from 'fast-json-patch';
+import { Observable } from 'rxjs/Observable';
+
+import { BaseService } from '../../shared/base.service';
+import { TourForCreation } from './tour-for-creation.model';
+import { TourWithEstimatedProfitsAndShows } from './tour-with-estimated-profits-and-shows.model';
+import { TourWithEstimatedProfits } from './tour-with-estimated-profits.model';
+import { TourWithManagerAndShowsForCreation } from './tour-with-manager-and-shows-for-creation.model';
+import { TourWithManagerForCreation } from './tour-with-manager-for-creation.model';
+import { TourWithShowsForCreation } from './tour-with-shows-for-creation.model';
+import { TourWithShows } from './tour-with-shows.model';
+import { Tour } from './tour.model';
 
 @Injectable()
 export class TourService extends BaseService {
@@ -60,7 +61,7 @@ export class TourService extends BaseService {
         return this.http.post<Tour>(`${this.apiUrl}/tours`, tourToAdd,
             { headers: { 'Content-Type': 'application/vnd.marvin.tourwithshowsforcreation+json' } });
     }
-    
+
     addTourWithManagerAndShows(tourToAdd: TourWithManagerAndShowsForCreation): Observable<Tour> {
         return this.http.post<Tour>(`${this.apiUrl}/tours`, tourToAdd,
             { headers: { 'Content-Type': 'application/vnd.marvin.tourwithmanagerandshowsforcreation+json' } });
@@ -68,6 +69,6 @@ export class TourService extends BaseService {
 
     partiallyUpdateTour(tourId: string, patchDocument: Operation[]): Observable<any> {
         return this.http.patch(`${this.apiUrl}/tours/${tourId}`, patchDocument,
-        { headers: { 'Content-Type': 'application/json-patch+json' } });
-        }
+            { headers: { 'Content-Type': 'application/json-patch+json' } });
+    }
 }

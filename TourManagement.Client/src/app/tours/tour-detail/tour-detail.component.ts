@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Tour } from '../shared/tour.model';
-import { TourService } from '../shared/tour.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
-import { MasterDataService } from '../../shared/master-data.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Show } from '../shows/shared/show.model';
+
+import { MasterDataService } from '../../shared/master-data.service';
 import { OpenIdConnectService } from '../../shared/open-id-connect.service';
+import { TourService } from '../shared/tour.service';
 
 @Component({
   selector: 'app-tour-detail',

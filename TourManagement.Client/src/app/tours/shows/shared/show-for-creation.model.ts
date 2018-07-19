@@ -1,4 +1,4 @@
-import { ShowAbstractBase } from "./show-abstract-base.model";
+import { ShowAbstractBase } from './show-abstract-base.model';
 
 export class ShowForCreation extends ShowAbstractBase {
 }
