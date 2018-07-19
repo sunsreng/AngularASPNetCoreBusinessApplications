@@ -1,0 +1,42 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+TourManagement.Client/dist
+TourManagement.Client/tmp
+TourManagement.Client/out-tsc
+
+# dependencies
+TourManagement.Client/node_modules
+
+# IDEs and editors
+TourManagement.Client/.idea
+TourManagement.Client/.project
+TourManagement.Client/.classpath
+TourManagement.Client/.c9/
+TourManagement.Client/*.launch
+TourManagement.Client/.settings/
+TourManagement.Client/*.sublime-workspace
+
+# IDE - VSCode
+TourManagement.Client/.vscode/*
+TourManagement.Client/!.vscode/settings.json
+TourManagement.Client/!.vscode/tasks.json
+TourManagement.Client/!.vscode/launch.json
+TourManagement.Client/!.vscode/extensions.json
+
+# IDE - VS
+.vs/
+
+# misc
+TourManagement.Client/.sass-cache
+TourManagement.Client/connect.lock
+TourManagement.Client/coverage
+TourManagement.Client/libpeerconnection.log
+TourManagement.Client/npm-debug.log
+TourManagement.Client/yarn-error.log
+TourManagement.Client/testem.log
+TourManagement.Client/typings
+
+# System Files
+TourManagement.Client/.DS_Store
+TourManagement.Client/Thumbs.db

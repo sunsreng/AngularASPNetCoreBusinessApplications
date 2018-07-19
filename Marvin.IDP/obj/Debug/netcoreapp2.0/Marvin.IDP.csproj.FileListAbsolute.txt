@@ -1,0 +1,11 @@
+E:\Library\Dev\TourManagement\Marvin.IDP\bin\Debug\netcoreapp2.0\Marvin.IDP.deps.json
+E:\Library\Dev\TourManagement\Marvin.IDP\bin\Debug\netcoreapp2.0\Marvin.IDP.runtimeconfig.json
+E:\Library\Dev\TourManagement\Marvin.IDP\bin\Debug\netcoreapp2.0\Marvin.IDP.runtimeconfig.dev.json
+E:\Library\Dev\TourManagement\Marvin.IDP\bin\Debug\netcoreapp2.0\Marvin.IDP.dll
+E:\Library\Dev\TourManagement\Marvin.IDP\bin\Debug\netcoreapp2.0\Marvin.IDP.pdb
+E:\Library\Dev\TourManagement\Marvin.IDP\obj\Debug\netcoreapp2.0\Marvin.IDP.csprojAssemblyReference.cache
+E:\Library\Dev\TourManagement\Marvin.IDP\obj\Debug\netcoreapp2.0\Marvin.IDP.csproj.CoreCompileInputs.cache
+E:\Library\Dev\TourManagement\Marvin.IDP\obj\Debug\netcoreapp2.0\Marvin.IDP.AssemblyInfoInputs.cache
+E:\Library\Dev\TourManagement\Marvin.IDP\obj\Debug\netcoreapp2.0\Marvin.IDP.AssemblyInfo.cs
+E:\Library\Dev\TourManagement\Marvin.IDP\obj\Debug\netcoreapp2.0\Marvin.IDP.dll
+E:\Library\Dev\TourManagement\Marvin.IDP\obj\Debug\netcoreapp2.0\Marvin.IDP.pdb

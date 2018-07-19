@@ -1,0 +1,14 @@
+E:\Library\Dev\TourManagement\TourManagement.API\bin\Debug\netcoreapp2.1\TourManagement.API.deps.json
+E:\Library\Dev\TourManagement\TourManagement.API\bin\Debug\netcoreapp2.1\TourManagement.API.runtimeconfig.json
+E:\Library\Dev\TourManagement\TourManagement.API\bin\Debug\netcoreapp2.1\TourManagement.API.runtimeconfig.dev.json
+E:\Library\Dev\TourManagement\TourManagement.API\bin\Debug\netcoreapp2.1\TourManagement.API.dll
+E:\Library\Dev\TourManagement\TourManagement.API\bin\Debug\netcoreapp2.1\TourManagement.API.pdb
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.csproj.CoreCompileInputs.cache
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.AssemblyInfoInputs.cache
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.AssemblyInfo.cs
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.dll
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.pdb
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.RazorAssemblyInfo.cache
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.RazorAssemblyInfo.cs
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.RazorTargetAssemblyInfo.cache
+E:\Library\Dev\TourManagement\TourManagement.API\obj\Debug\netcoreapp2.1\TourManagement.API.csprojAssemblyReference.cache
